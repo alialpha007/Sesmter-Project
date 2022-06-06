@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// ADDING MONGOOSE
+const mongoose = require('mongoose');
+
 // HOMEPAGE ROUTER
 var indexRouter = require('./routes/index');
 
@@ -48,4 +51,9 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+// ADDING MONGOOSE
+mongoose.connect("mongodb://localhost/articlescrud",
+  { useNewUrlParser: true, useUnifiedTopology: true, })
+  .then(() => console.log("Connected to MongoDB...."))
+  .catch((error) => console.log(error.message));
 module.exports = app;
