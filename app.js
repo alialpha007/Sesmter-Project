@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // ADDING MONGOOSE
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 // HOMEPAGE ROUTER
 var indexRouter = require('./routes/index');
