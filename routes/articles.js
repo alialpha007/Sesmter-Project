@@ -10,7 +10,7 @@ router.get('/', async function (req, res, next) {
 });
 
 router.get('/add', async function (req, res, next) {
-  res.render("articles/add");
+  res.send("Hello");
 });
 
 
