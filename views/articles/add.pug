@@ -1,4 +1,14 @@
 extends ../layout
 
 block content
-    h1 Add article
+    div.p-4
+        h1 Add article
+        form(action="/articles/add", method="post")
+            div.form-group.mt-5
+            label(for="title") Title
+            input(type="text" name="title" class="form-control" id="title" placeholder="Enter title")
+            div.form-group.mt-3
+            label(for="text") Description
+            textarea(name="text" class="form-control" id="text" rows="3")
+            button(type="submit" class="btn btn-primary pt-2 mt-3 mr-1") Submit
+            a(href="/articles", class="btn btn-secondary pt-2 mt-3") Cancel
