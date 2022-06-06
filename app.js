@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 
 // ADMIN PANEL ROUTER
-var adminRouter = require('./routes/admin');
+var articlesRouter = require('./routes/articles');
 
 var usersRouter = require('./routes/users');
 
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 // ADMIN PANEL ROUTER
-app.use('/admin', adminRouter);
+app.use('/articles', articlesRouter);
 
 app.use('/users', usersRouter);
 
