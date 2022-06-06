@@ -1,4 +1,10 @@
 extends layout
 
 block content
-  h1 homepage
+    h1 Home
+    each article in articles
+      div.card.mt-4.ml-4.mb-4.mr-4.m-auto.w-75 
+        div.card
+          div.card-body
+            h5.card-title=article.title
+            p.card-text.mb-2=article.text
