@@ -5,3 +5,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.customEdit {
+  width: 74px !important;
+  margin-right: 10px;
+}
+
+.customCancel {
+  margin-left: 10px;
+}

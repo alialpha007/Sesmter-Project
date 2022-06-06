@@ -12,6 +12,9 @@ block content
           div.card-body
             h5.card-title=article.title
             p.card-text.mb-2=article.text
+            div.mt-4
+              a(href="/articles/edit/"+article._id, class="btn btn-primary customEdit") Edit
+              a(href="/articles/delete/"+article._id, class="btn btn-danger") Delete
 
 
     
