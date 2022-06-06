@@ -28,5 +28,19 @@ router.get('/delete/:id', async function (req, res, next) {
   res.redirect("/articles")
 });
 
+// THIS ROUTE WILL REDIRECT US TO THE EDIT PAGE
+router.get('/edit/:id', async function (req, res, next) {
+  let article = await Article.findById(req.params.id)
+  res.render("articles/edit", { article })
+});
+//THIS ROUTE WILL EDIT THE ARTICLE AND REDIRECT TO THE ARTICLES PAGE
+router.post('/edit/:id', async function (req, res, next) {
+  let article = await Article.findById(req.params.id)
+  article.title = req.body.title
+  article.text = req.body.text
+  await article.save()
+  res.redirect("/articles")
+});
+
 
 module.exports = router;
