@@ -10,14 +10,29 @@ router.get('/', async function (req, res, next) {
 
 // 
 router.get('/favorities', function (req, res, next) {
-  res.render('favorities');
+  let favorities = req.cookies.favorities
+  if (!favorities) favorities = []
+  res.render('favorities', { favorities });
 });
 
 // THIS ROUTE WILL ADD TO FAVOUITIES THE ARTICLE AND REDIRECT TO THE HOME PAGE
 router.get('/favorities/:id', async function (req, res, next) {
   let article = await Article.findById(req.params.id)
-  console.log("Add to favoutrities..............")
+  let favorities = []
+  if (req.cookies.favorities) favorities = req.cookies.favorities
+  favorities.push(article)
+  res.cookie("favorities", favorities)
+  res.redirect("/")
+});
+
+// THIS ROUTE WILL REMOVE THE ARTICLE FROM THE FAOURITIES
+router.get('/favorities/remove/:id', async function (req, res, next) {
+  let favorities = []
+  if (req.cookies.favorities) favorities = req.cookies.favorities
+  favorities.splice(favorities.findIndex(f => f._id = req.params.id), 1)
+  res.cookie("favorities", favorities)
   res.redirect("/favorities")
 });
+
 
 module.exports = router;

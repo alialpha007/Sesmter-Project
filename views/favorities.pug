@@ -2,3 +2,16 @@ extends layout
 
 block content
     h1.text-center.mt-3 Favorities
+    -var total=0
+      each item in favorities
+        
+      
+
+        div.card.mt-4.ml-4.mb-4.mr-4.m-auto.w-75
+          div.card
+            div.card-body
+              - total++
+              h3(class="btn btn-success d-sm-inline-block ml-3")=total 
+              h5.card-title.d-sm-inline-block.p-3=item.title
+              p.card-text.mb-2=item.text
+              a(href="/favorities/remove/"+item._id, class="btn btn-danger mt-3") Remove from Favorities
