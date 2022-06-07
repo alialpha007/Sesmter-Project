@@ -29,7 +29,7 @@ router.get('/favorities/:id', async function (req, res, next) {
 router.get('/favorities/remove/:id', async function (req, res, next) {
   let favorities = []
   if (req.cookies.favorities) favorities = req.cookies.favorities
-  favorities.splice(favorities.findIndex(f => f._id = req.params.id), 1)
+  favorities.splice(favorities.findIndex(f => f._id == req.params.id), 1)
   res.cookie("favorities", favorities)
   res.redirect("/favorities")
 });
