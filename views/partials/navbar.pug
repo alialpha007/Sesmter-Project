@@ -3,17 +3,17 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarText">
+  <div class="collapse navbar-collapse flex-row-reverse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="/">Blogs<span class="sr-only"></span></a>
       </li>
     if !user
       <li class="nav-item">
-        <a class="nav-link bg-success text-white" href="/register">Register</a>
+        <a class="nav-link text-success" href="/register">Register</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link bg-white text-dark" href="/login">Login</a>
+        <a class="nav-link text-white" href="/login">Login</a>
       </li>
       //- ADDING CONDITIONS TO THE NAVBAR
       //- If the user is logged in, show the logout button
@@ -25,7 +25,7 @@
           <a class="nav-link" href="/articles">Admin</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link bg-white text-dark" href="/logout">Logout</a>
+          <a class="nav-link text-white" href="/logout">Logout</a>
         </li>
         
     </ul>
