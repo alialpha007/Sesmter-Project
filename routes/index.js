@@ -6,7 +6,7 @@ var checkSessionAuth = require("../middlewares/checkSessionAuth");
 /* GET home page. */
 router.get('/', async function (req, res, next) {
   let articles = await Article.find()
-  res.render('index', { title: 'Bloggy', articles });
+  res.render('index', { title: 'Bloggers.pk', articles });
 });
 
 // readmore
