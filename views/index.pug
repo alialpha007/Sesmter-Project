@@ -2,9 +2,8 @@ extends layout
 
 block content
   div.p-4
-    h1.text-center BLOGS
     each article in articles
-      div.card.mt-4.ml-4.mb-4.mr-4.m-auto.w-75 
+      div.card.mt-4.ml-4.mb-4.mr-4.m-auto.w-75
         div.card
           div.card-body
             h5.card-title=article.title
