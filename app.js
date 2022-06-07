@@ -33,7 +33,7 @@ app.use('/', indexRouter);
 // ADMIN PANEL ROUTER
 app.use('/articles', articlesRouter);
 
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var User = require("../models/user")
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/register', function (req, res, next) {
+  res.render('users/register');
+});
+
+// Registering  New User
+router.post('/register', async function (req, res, next) {
+  let user = new User(req.body)
+  await user.save()
+  res.redirect('/');
 });
 
 module.exports = router;
