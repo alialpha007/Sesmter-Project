@@ -8,7 +8,15 @@ router.get('/', async function (req, res, next) {
   res.render('index', { title: 'Bloggy', articles });
 });
 
-// 
+// readmore
+router.get('/readmore/:id', async function (req, res, next) {
+  let article = await Article.findById(req.params.id)
+  res.render("articles/readmore", { article });
+  // res.redirect("/")
+});
+
+
+// ROUTE FOR ADDDING ARTICLE IN FOURITIES
 router.get('/favorities', function (req, res, next) {
   let favorities = req.cookies.favorities
   if (!favorities) favorities = []
