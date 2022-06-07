@@ -22,10 +22,15 @@ router.get('/login', function (req, res, next) {
 });
 
 // ROUTE FOR SUBMITTING CREDENTIALS OF A LOGIN USER
-router.post('/login', async function (req, res, next) {
-  let user = await User.findOne({ email: req.body.email, password: req.body.password })
-  if (!user) return res.redirect("/login")
-  return escape.redirect("/")
+router.post("/login", async function (req, res, next) {
+  let user = await User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  console.log("user login")
+  if (!user) return res.redirect("/login");
+  req.session.user = user;
+  return res.redirect("/");
 });
 
 module.exports = router;

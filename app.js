@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
+
 // ADDING MONGOOSE
 var mongoose = require('mongoose');
 
@@ -15,7 +17,11 @@ var articlesRouter = require('./routes/articles');
 
 var usersRouter = require('./routes/users');
 
+var session = require("express-session");
 var app = express();
+
+//ADDING SESSION
+app.use(session({ secret: "dummytext", resave: false, saveUninitialized: true, cookie: { maxAge: 60000 } }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

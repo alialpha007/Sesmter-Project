@@ -5,7 +5,7 @@ var Article = require("../models/article")
 /* GET home page. */
 router.get('/', async function (req, res, next) {
   let articles = await Article.find()
-  // console.log(articles)
+  console.log(req.session)
   res.render("articles/list", { articles });
 });
 
