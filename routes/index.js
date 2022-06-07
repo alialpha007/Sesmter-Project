@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Article = require("../models/article")
+var checkSessionAuth = require("../middlewares/checkSessionAuth");
 
 /* GET home page. */
 router.get('/', async function (req, res, next) {
@@ -24,7 +25,7 @@ router.get('/favorities', function (req, res, next) {
 });
 
 // THIS ROUTE WILL ADD TO FAVOUITIES THE ARTICLE AND REDIRECT TO THE HOME PAGE
-router.get('/favorities/:id', async function (req, res, next) {
+router.get('/favorities/:id', checkSessionAuth, async function (req, res, next) {
   let article = await Article.findById(req.params.id)
   let favorities = []
   if (req.cookies.favorities) favorities = req.cookies.favorities
