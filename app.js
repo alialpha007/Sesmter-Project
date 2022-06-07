@@ -17,11 +17,15 @@ var articlesRouter = require('./routes/articles');
 
 var usersRouter = require('./routes/users');
 
+// SESSION
 var session = require("express-session");
+var sessionAuth = require("./middlewares/sessionAuth")
+
 var app = express();
 
 //ADDING SESSION
 app.use(session({ secret: "dummytext", resave: false, saveUninitialized: true, cookie: { maxAge: 60000 } }));
+app.use(sessionAuth)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
