@@ -18,7 +18,7 @@ router.get('/readmore/:id', async function (req, res, next) {
 
 
 // ROUTE FOR ADDDING ARTICLE IN FOURITIES
-router.get('/favorities', function (req, res, next) {
+router.get('/favorities', checkSessionAuth, function (req, res, next) {
   let favorities = req.cookies.favorities
   if (!favorities) favorities = []
   res.render('favorities', { favorities });

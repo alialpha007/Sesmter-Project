@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var Article = require("../models/article")
+var checkSessionAuth = require("../middlewares/checkSessionAuth");
 
 /* GET home page. */
-router.get('/', async function (req, res, next) {
+router.get('/', checkSessionAuth, async function (req, res, next) {
   let articles = await Article.find()
   res.render("articles/list", { articles });
 });
