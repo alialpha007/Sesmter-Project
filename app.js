@@ -61,9 +61,18 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
+const DB = "mongodb+srv://articlescrud:<password>@cluster0.tkodc.mongodb.net/?retryWrites=true&w=majority"
+
 // ADDING MONGOOSE
-mongoose.connect("mongodb://localhost/articlescrud",
-  { useNewUrlParser: true, useUnifiedTopology: true, })
+mongoose.connect("mongodb+srv://articlescrud:articlescrud@cluster0.tkodc.mongodb.net/?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true, useUnifiedTopology: false })
   .then(() => console.log("Connected to MongoDB...."))
   .catch((error) => console.log(error.message));
 module.exports = app;
+// mongoose.connect("mongodb://localhost/articlescrud",
+//   { useNewUrlParser: true, useUnifiedTopology: true, })
+//   .then(() => console.log("Connected to MongoDB...."))
+//   .catch((error) => console.log(error.message));
+// module.exports = app;
+
+
